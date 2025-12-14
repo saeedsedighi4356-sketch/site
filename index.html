@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خانه اسپیکر صدیقی | خرید اقساطی سیستم صوتی و تلویزیون</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Vazirmatn', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: {
+                            100: '#f9f5e3', 
+                            400: '#d4af37', 
+                            500: '#b4941f', 
+                            600: '#8a7010', 
+                            900: '#3e3205', 
+                        },
+                        dark: {
+                            800: '#1a1a1a', 
+                            900: '#000000',
+                        },
+                        whatsapp: '#25D366'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #fcfbf8;
+            scroll-behavior: smooth;
+        }
+        
+        /* لودینگ صفحه */
+        #page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        #page-loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-speaker {
+            width: 80px;
+            height: 80px;
+            border: 4px solid #d4af37;
+            border-radius: 50%;
+            position: relative;
+            animation: speakerPulse 1.5s ease-in-out infinite;
+        }
+
+        .loader-speaker::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background: #d4af37;
+            border-radius: 50%;
+        }
+
+        @keyframes speakerPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            50% { transform: scale(1.1); box-shadow: 0 0 30px 10px rgba(212, 175, 55, 0.3); }
+        }
+
+        /* انیمیشن موج صدا */
+        .sound-wave {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 40px;
+        }
+
+        .sound-wave .bar {
+            width: 4px;
+            background: linear-gradient(to top, #d4af37, #f9f5e3);
+            border-radius: 2px;
+            animation: soundWave 0.8s ease-in-out infinite;
+        }
+
+        .sound-wave .bar:nth-child(1) { animation-delay: 0s; height: 20px; }
+        .sound-wave .bar:nth-child(2) { animation-delay: 0.1s; height: 30px; }
+        .sound-wave .bar:nth-child(3) { animation-delay: 0.2s; height: 25px; }
+        .sound-wave .bar:nth-child(4) { animation-delay: 0.3s; height: 35px; }
+        .sound-wave .bar:nth-child(5) { animation-delay: 0.4s; height: 20px; }
+
+        @keyframes soundWave {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(0.5); }
+        }
+        
+        /* دکمه شناور واتساپ جدید */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 1000;
+            animation: float 3s ease-in-out infinite;
+            text-decoration: none;
+        }
+
+        .whatsapp-float .whatsapp-btn {
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float .whatsapp-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #25D366;
+            border-radius: 50%;
+            animation: whatsappPulse 2s infinite;
+            z-index: -1;
+        }
+
+        .whatsapp-float .whatsapp-btn i {
+            font-size: 28px;
+            color: white;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes whatsappPulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        /* استایل‌های اصلی */
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d4af37;
+        }
+        
+        /* کلاس برای نمایش/مخفی کردن جزییات */
+        .details-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .details-content.open {
+            max-height: 200px; /* ارتفاع تقریبی برای باز شدن */
+        }
+        
+        /* مودال بزرگنمایی تصاویر */
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .image-modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+        
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            background: rgba(0,0,0,0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* تصاویر قابل کلیک */
+        .clickable-image {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .clickable-image:hover {
+            transform: scale(1.03);
+        }
+        
+        /* عکس‌های اسپیکر - عمودی */
+        .speaker-image-container {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .speaker-image {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        /* عکس‌های تلویزیون - افقی */
+        .tv-image-container {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .tv-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800">
+
+    <!-- لودینگ صفحه -->
+    <div id="page-loader">
+        <div class="loader-speaker"></div>
+        <p class="text-gold-400 mt-4 text-lg font-bold">خانه اسپیکر صدیقی</p>
+        <div class="sound-wave mt-4">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+
+    <!-- مودال بزرگنمایی تصاویر -->
+    <div id="imageModal" class="image-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeImageModal()">&times;</span>
+            <img id="modalImage" src="" alt="تصویر بزرگ شده">
+        </div>
+    </div>
+
+    <div class="bg-gradient-to-r from-rose-900 via-red-800 to-rose-900 text-gold-100 text-center py-3 text-sm font-bold shadow-md border-b-2 border-gold-500">
+        🍉 تا پایان **جشنواره یلدای طلایی** فقط ۲ روز باقی مانده! فرصت خرید قسطی را از دست ندهید.
+    </div>
+    
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-3">
+                <img src="logo2.jpg" alt="لوگو خانه اسپیکر صدیقی" class="logo-img">
+                <div class="text-xl md:text-2xl font-bold text-gray-800">
+                    خانه اسپیکر صدیقی
+                </div>
+                <!-- موج صدا در هدر -->
+                <div class="sound-wave hidden md:flex">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+
+            <div class="hidden lg:flex gap-8 text-gray-600 font-medium absolute left-1/2 transform -translate-x-1/2">
+                <a href="#" class="hover:text-gold-500 transition">صفحه اصلی</a>
+                <a href="#products" class="hover:text-gold-500 transition">محصولات</a>
+                <a href="#installment" class="hover:text-gold-500 transition">خرید اقساطی</a>
+                <a href="#about" class="hover:text-gold-500 transition">درباره ما</a>
+                <a href="#contact" class="hover:text-gold-500 transition">تماس با ما</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="tel:09028411552" class="hidden sm:flex items-center gap-2 border border-gold-500 text-gold-600 px-4 py-2 rounded-full hover:bg-gold-500 hover:text-white transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    <span class="font-medium text-sm">تماس فوری</span>
+                </a>
+                
+                <button id="menu-btn" class="lg:hidden text-gray-600 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t p-4 flex flex-col gap-4 shadow-lg">
+            <a href="#" class="block py-2 border-b border-gray-100">صفحه اصلی</a>
+            <a href="#products" class="block py-2 border-b border-gray-100">محصولات</a>
+            <a href="#installment" class="block py-2 border-b border-gray-100">خرید اقساطی</a>
+            <a href="#about" class="block py-2 border-b border-gray-100">درباره ما</a>
+            <a href="#contact" class="block py-2">تماس با ما</a>
+        </div>
+    </header>
+
+<section class="container mx-auto px-4 py-8 md:py-16">
+    <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-8 bg-white rounded-3xl p-6 md:p-12 shadow-lg overflow-hidden relative 
+          md:min-h-[550px] lg:min-h-[650px]"> 
+        
+        <div class="absolute inset-0 z-0 rounded-3xl overflow-hidden">
+            <img 
+                src="8.png" 
+                alt="سیستم صوتی خانگی لوکس" 
+                class="w-full h-full object-cover opacity-80" 
+                style="object-position: center bottom;"
+            >
+            <div class="absolute inset-0 bg-gradient-to-l from-white/90 to-transparent"></div>
+        </div>
+        
+        <div class="w-full md:w-1/2 z-10 text-center md:text-right space-y-6 relative">
+            <h1 class="text-4xl md:text-6xl font-black text-gray-800 leading-tight">
+                صدای رویایی خود را <br>
+                <span class="text-gold-500">قسطی</span> بخرید!
+            </h1>
+            <p class="text-gray-700 text-lg">
+                مرجع تخصصی انواع اسپیکر و تلویزیون
+                <br>
+                فروش ویژه نقد و اقساط با بهترین شرایط
+            </p>
+            <div class="pt-4 flex gap-4 justify-center md:justify-start">
+                <a href="#products" class="bg-gold-500 hover:bg-gold-600 text-white px-8 py-3 rounded-xl font-bold shadow-lg transition transform hover:scale-105">
+                    مشاهده محصولات
+                </a>
+                <a href="#contact" class="border-2 border-gold-500 text-gold-600 px-8 py-3 rounded-xl font-bold hover:bg-gold-100 transition bg-white">
+                    مشاوره خرید
+                </a>
+            </div>
+        </div>
+
+        <div class="hidden md:block w-1/2">
+        </div>
+        
+    </div>
+</section>
+
+    <section id="about" class="container mx-auto px-4 py-16 bg-white rounded-3xl shadow-sm border border-gray-100 my-8">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2 space-y-6">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="w-12 h-1 bg-gold-500 rounded-full"></span>
+                    <span class="text-gold-600 font-bold uppercase tracking-wider">درباره ما</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 leading-tight">تجربه‌ای متفاوت در خرید <br> سیستم‌های صوتی و تصویری</h2>
+                <p class="text-gray-600 leading-loose text-justify">
+                    مجموعه «خانه اسپیکر صدیقی» با بیش از ۱۶ سال سابقه درخشان در قلب بازار لوازم صوتی و تصویری مشهد، افتخار دارد که میزبان شما عزیزان باشد. ما تخصصی‌ترین مرکز ارائه دهنده انواع اسپیکر، باند، سینمای خانگی و تلویزیون هستیم.
+                    <br><br>
+                    هدف ما فراهم کردن شرایطی است که هر خانواده ایرانی بتواند از صدایی شفاف و تصویری باکیفیت لذت ببرد. به همین منظور، شرایط اقساطی بسیار منعطف و آسانی را بدون نیاز به ضامن‌های متعدد برای شما فراهم کرده‌ایم.
+                </p>
+                <div class="grid grid-cols-2 gap-4 pt-4">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-gold-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span class="text-sm font-bold text-gray-700">تنوع بی نظیر</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-gold-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span class="text-sm font-bold text-gray-700">قیمت رقابتی</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-gold-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span class="text-sm font-bold text-gray-700">ارسال به سراسر کشور</span>
+                    </div>
+                     <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-gold-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span class="text-sm font-bold text-gray-700">پشتیبانی ۲۴ ساعته</span>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="clickable-image" onclick="openImageModal('IMG_3524.webp')">
+                        <img src="IMG_3524.webp" alt="فروشگاه" class="rounded-2xl shadow-lg w-full h-48 object-cover">
+                    </div>
+                    <div class="clickable-image" onclick="openImageModal('IMG_3528.webp')">
+                        <img src="IMG_3528.webp" alt="محصولات" class="rounded-2xl shadow-lg w-full h-48 object-cover">
+                    </div>
+                </div>
+                <p class="text-center text-xs text-gray-500 mt-2"></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="container mx-auto px-4 py-12">
+	
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+            <h2 class="text-2xl font-bold text-gray-800">جدیدترین اسپیکرها</h2>
+            
+            <div class="flex flex-wrap gap-2 justify-center">
+                <button onclick="filterSpeakers('all')" class="filter-btn px-4 py-1 rounded-full text-sm font-bold bg-gold-500 text-white transition hover:bg-gold-600">همه</button>
+                <button onclick="filterSpeakers('shockwave')" class="filter-btn px-4 py-1 rounded-full text-sm font-bold bg-gray-200 text-gray-600 transition hover:bg-gold-100">شاک ویو</button>
+                <button onclick="filterSpeakers('microlab')" class="filter-btn px-4 py-1 rounded-full text-sm font-bold bg-gray-200 text-gray-600 transition hover:bg-gold-100">میکرولب</button>
+                <button onclick="filterSpeakers('maxeeder')" class="filter-btn px-4 py-1 rounded-full text-sm font-bold bg-gray-200 text-gray-600 transition hover:bg-gold-100">مکسیدر</button>
+                <button onclick="filterSpeakers('dena')" class="filter-btn px-4 py-1 rounded-full text-sm font-bold bg-gray-200 text-gray-600 transition hover:bg-gold-100">دنا</button>
+            </div>
+            
+            <button onclick="toggleAllProducts('extra-speakers')" class="text-gold-600 hover:text-gold-800 text-sm font-bold flex items-center gap-1 cursor-pointer">
+                مشاهده همه
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300" id="arrow-extra-speakers" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            
+            <div class="product-card speaker-item bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex flex-col transition duration-300 relative" data-brand="shockwave">
+                <span class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">پرفروش</span>
+                <div class="speaker-image-container clickable-image" onclick="openImageModal('sp.jpg')">
+                    <img src="sp.jpg" alt="Speaker" class="speaker-image">
+                </div>
+                <h3 class="font-bold text-gray-800 mb-1 mt-2">شاک ویو مدل 310</h3>
+                <p class="text-xs text-gray-500 mb-3">صدای قدرتمند و باس عمیق</p>
+                <div class="mt-auto">
+                    <span class="block text-gold-600 font-bold mb-2">۱۸,۵۰۰,۰۰۰ تومان</span>
+                    <div class="flex gap-2">
+                         <button onclick="toggleDetails('desc-1')" class="flex-1 bg-gold-500 text-white py-2 rounded-lg text-sm text-center hover:bg-gold-600 transition">جزییات کالا</button>
+                         <a href="tel:09028411552" class="flex-1 bg-gray-900 text-white py-2 rounded-lg text-sm text-center hover:bg-dark-800 transition">خرید</a>
+                    </div>
+                    <div id="desc-1" class="details-content bg-gray-50 mt-2 rounded-lg text-xs text-gray-600 px-2">
+                        <div class="py-2">
+                            <ul class="list-disc list-inside">
+                                <li>توان خروجی: 30000 وات</li>
+                                <li>ساب ووفر: 12 اینچ</li>
+                                <li>رقص نور: دارد</li>
+                                <li>میکروفن بی سیم: دارد</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card speaker-item bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex flex-col transition duration-300 relative" data-brand="microlab">
+                <span class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">پیش پرداخت صفر</span>
+                <div class="speaker-image-container clickable-image" onclick="openImageModal('sp.jpg')">
+                    <img src="sp.jpg" alt="Soundbar" class="speaker-image">
+                </div>
+                <h3 class="font-bold text-gray-800 mb-1 mt-2">میکرولب ساندبار 500</h3>
+                <p class="text-xs text-gray-500 mb-3">سینمای خانگی هوشمند</p>
+                <div class="mt-auto">
+                    <span class="block text-gold-600 font-bold mb-2">۱۲,۲۰۰,۰۰۰ تومان</span>
+                    <div class="flex gap-2">
+                         <button onclick="toggleDetails('desc-2')" class="flex-1 bg-gold-500 text-white py-2 rounded-lg text-sm text-center hover:bg-gold-600 transition">جزییات کالا</button>
+                         <a href="tel:09028411552" class="flex-1 bg-gray-900 text-white py-2 rounded-lg text-sm text-center hover:bg-dark-800 transition">خرید</a>
+                    </div>
+                     <div id="desc-2" class="details-content bg-gray-50 mt-2 rounded-lg text-xs text-gray-600 px-2">
+                        <div class="py-2">
+                             <ul class="list-disc list-inside">
+                                <li>بلوتوث نسخه 5</li>
+                                <li>ورودی اپتیکال</li>
+                                <li>ریموت کنترل هوشمند</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card speaker-item bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex flex-col transition duration-300" data-brand="maxeeder">
+                <div class="speaker-image-container clickable-image" onclick="openImageModal('sp.jpg')">
+                    <img src="sp.jpg" alt="Portable" class="speaker-image">
+                </div>
+                <h3 class="font-bold text-gray-800 mb-1 mt-2">مکسیدر پرتابل T-10</h3>
+                <p class="text-xs text-gray-500 mb-3">اسپیکر قابل حمل ضد آب</p>
+                <div class="mt-auto">
+                    <span class="block text-gold-600 font-bold mb-2">۴,۸۰۰,۰۰۰ تومان</span>
+                    <div class="flex gap-2">
+                         <button onclick="toggleDetails('desc-3')" class="flex-1 bg-gold-500 text-white py-2 rounded-lg text-sm text-center hover:bg-gold-600 transition">جزییات کالا</button>
+                         <a href="tel:09028411552" class="flex-1 bg-gray-900 text-white py-2 rounded-lg text-sm text-center hover:bg-dark-800 transition">خرید</a>
+                    </div>
+                     <div id="desc-3" class="details-content bg-gray-50 mt-2 rounded-lg text-xs text-gray-600 px-2">
+                        <div class="py-2">
+                             <ul class="list-disc list-inside">
+                                <li>ضد آب IPX7</li>
+                                <li>باتری 12 ساعت</li>
+                                <li>قابلیت پاوربانک</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card speaker-item bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex flex-col transition duration-300" data-brand="dena">
+                <div class="speaker-image-container clickable-image" onclick="openImageModal('sp.jpg')">
+                    <img src="sp.jpg" alt="Sony" class="speaker-image">
+                </div>
+                <h3 class="font-bold text-gray-800 mb-1 mt-2">دنا مدل P-70</h3>
+                <p class="text-xs text-gray-500 mb-3">نورپردازی و صدای ۳۶۰ درجه</p>
+                <div class="mt-auto">
+                    <span class="block text-gold-600 font-bold mb-2">۲۱,۰۰۰,۰۰۰ تومان</span>
+                    <div class="flex gap-2">
+                         <button onclick="toggleDetails('desc-4')" class="flex-1 bg-gold-500 text-white py-2 rounded-lg text-sm text-center hover:bg-gold-600 transition">جزییات کالا</button>
+                         <a href="tel:09028411552" class="flex-1 bg-gray-900 text-white py-2 rounded-lg text-sm text-center hover:bg-dark-800 transition">خرید</a>
+                    </div>
+                     <div id="desc-4" class="details-content bg-gray-50 mt-2 rounded-lg text-xs text-gray-600 px-2">
+                        <div class="py-2">
+                             <ul class="list-disc list-inside">
+                                <li>نورپردازی RGB</li>
+                                <li>صدای 360 درجه</li>
+                                <li>بدنه مقاوم</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="extra-speakers" class="hidden grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-6 transition-all duration-500">
+             <div class="product-card speaker-item bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex flex-col transition duration-300" data-brand="microlab">
+                <div class="speaker-image-container clickable-image" onclick="openImageModal('sp.jpg')">
+                    <img src="sp.jpg" alt="Speaker" class="speaker-image">
+                </div>
+                <h3 class="font-bold text-gray-800 mb-1 mt-2">میکرولب تاور 200</h3>
+                <p class="text-xs text-gray-500 mb-3">طراحی کلاسیک</p>
+                <div class="mt-auto">
+                    <span class="block text-gold-600 font-bold mb-2">۱۵,۰۰۰,۰۰۰ تومان</span>
+                    <div class="flex gap-2">
+                         <button onclick="toggleDetails('desc-5')" class="flex-1 bg-gold-500 text-white py-2 rounded-lg text-sm text-center hover:bg-gold-600 transition">جزییات کالا</button>
+                         <a href="tel:09028411552" class="flex-1 bg-gray-900 text-white py-2 rounded-lg text-sm text-center hover:bg-dark-800 transition">خرید</a>
+                    </div>
+                     <div id="desc-5" class="details-content bg-gray-50 mt-2 rounded-lg text-xs text-gray-600 px-2">
+                        <div class="py-2">توضیحات تکمیلی این محصول...</div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card speaker-item bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex flex-col transition duration-300" data-brand="maxeeder">
+                <div class="speaker-image-container clickable-image" onclick="openImageModal('sp.jpg')">
+                    <img src="sp.jpg" alt="Speaker" class="speaker-image">
+                </div>
+                <h3 class="font-bold text-gray-800 mb-1 mt-2">مکسیدر سری MX</h3>
+                <p class="text-xs text-gray-500 mb-3">حرفه ای برای دی جی</p>
+                <div class="mt-auto">
+                    <span class="block text-gold-600 font-bold mb-2">۲۸,۰۰۰,۰۰۰ تومان</span>
+                    <div class="flex gap-2">
+                         <button onclick="toggleDetails('desc-6')" class="flex-1 bg-gold-500 text-white py-2 rounded-lg text-sm text-center hover:bg-gold-600 transition">جزییات کالا</button>
+                         <a href="tel:09028411552" class="flex-1 bg-gray-900 text-white py-2 rounded-lg text-sm text-center hover:bg-dark-800 transition">خرید</a>
+                    </div>
+                     <div id="desc-6" class="details-content bg-gray-50 mt-2 rounded-lg text-xs text-gray-600 px-2">
+                        <div class="py-2">توضیحات تکمیلی این محصول...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="container mx-auto px-4 py-12">
+        <h2 class="text-center text-2xl font-bold mb-12 text-gray-800">تجربیات مشتریان راضی</h2>
+        
+        <div class="bg-white rounded-xl p-8 shadow-lg border border-gold-100">
+            <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto leading-loose">
+                صدای یک خرید موفق شنیدنی است! در اینجا می‌توانید رضایت و تجربیات مشتریانی که خانه اسپیکر صدیقی را برای خرید اقساطی سیستم صوتی و تلویزیون خود انتخاب کرده‌اند، مشاهده کنید. کیفیت، قیمت مناسب و شرایط پرداخت آسان تعهد ما به شماست.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                    <div class="h-40 w-full bg-gray-300 flex items-center justify-center text-gray-500 font-bold">
+                        [محل قرارگیری ویدیوی رضایت ۱]
+                    </div>
+                    <p class="p-3 text-sm text-center font-medium">«کیفیت صدا فوق‌العاده بود.»</p>
+                </div>
+                <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                    <div class="h-40 w-full bg-gray-300 flex items-center justify-center text-gray-500 font-bold">
+                        [محل قرارگیری ویدیوی رضایت ۲]
+                    </div>
+                    <p class="p-3 text-sm text-center font-medium">«شرایط قسطی بسیار آسان.»</p>
+                </div>
+                <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                    <div class="h-40 w-full bg-gray-300 flex items-center justify-center text-gray-500 font-bold">
+                        [محل قرارگیری ویدیوی رضایت ۳]
+                    </div>
+                    <p class="p-3 text-sm text-center font-medium">«مشاوره دقیق قبل از خرید.»</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    
+    <section id="tv-products" class="container mx-auto px-4 py-12">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-2xl font-bold text-gray-800">تلویزیون‌های هانسون (Hanson)</h2>
+            
+            <button onclick="toggleAllProducts('extra-tvs')" class="text-gold-600 hover:text-gold-800 text-sm font-bold flex items-center gap-1 cursor-pointer">
+                مشاهده همه
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300" id="arrow-extra-tvs" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            
+            <div class="product-card bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex flex-col transition duration-300 relative">
+                <span class="absolute top-2 right-2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">4K LED</span>
+                <div class="tv-image-container clickable-image" onclick="openImageModal('t1.jpg')">
+                    <img src="t1.jpg" alt="Hanson TV" class="tv-image">
+                </div>
+                <h3 class="font-bold text-gray-800 mb-1 mt-2">هانسون 55 اینچ هوشمند</h3>
+                <p class="text-xs text-gray-500 mb-3">کیفیت تصویر Ultra HD</p>
+                <div class="mt-auto">
+                    <span class="block text-gold-600 font-bold mb-2">۲۵,۴۰۰,۰۰۰ تومان</span>
+                    <div class="flex gap-2">
+                         <button onclick="toggleDetails('desc-tv1')" class="flex-1 bg-gold-500 text-white py-2 rounded-lg text-sm text-center hover:bg-gold-600 transition">جزییات کالا</button>
+                         <a href="tel:09028411552" class="flex-1 bg-gray-900 text-white py-2 rounded-lg text-sm text-center hover:bg-dark-800 transition">خرید</a>
+                    </div>
+                     <div id="desc-tv1" class="details-content bg-gray-50 mt-2 rounded-lg text-xs text-gray-600 px-2">
+                        <div class="py-2">
+                             <ul class="list-disc list-inside">
+                                <li>سیستم عامل اندروید</li>
+                                <li>پنل IPS</li>
+                                <li>گیرنده دیجیتال داخلی</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex flex-col transition duration-300">
+                <div class="tv-image-container clickable-image" onclick="openImageModal('t1.jpg')">
+                    <img src="t1.jpg" alt="Hanson TV" class="tv-image">
+                </div>
+                <h3 class="font-bold text-gray-800 mb-1 mt-2">هانسون 43 اینچ Full HD</h3>
+                <p class="text-xs text-gray-500 mb-3">مناسب برای فضای کوچک</p>
+                <div class="mt-auto">
+                    <span class="block text-gold-600 font-bold mb-2">۹,۵۰۰,۰۰۰ تومان</span>
+                    <div class="flex gap-2">
+                         <button onclick="toggleDetails('desc-tv2')" class="flex-1 bg-gold-500 text-white py-2 rounded-lg text-sm text-center hover:bg-gold-600 transition">جزییات کالا</button>
+                         <a href="tel:09028411552" class="flex-1 bg-gray-900 text-white py-2 rounded-lg text-sm text-center hover:bg-dark-800 transition">خرید</a>
+                    </div>
+                     <div id="desc-tv2" class="details-content bg-gray-50 mt-2 rounded-lg text-xs text-gray-600 px-2">
+                        <div class="py-2">
+                             <ul class="list-disc list-inside">
+                                <li>پورت HDMI x 2</li>
+                                <li>قابلیت اتصال به دیوار</li>
+                                <li>گارانتی ۱۸ ماهه</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="extra-tvs" class="hidden grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-6 transition-all duration-500">
+            <div class="product-card bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex flex-col transition duration-300">
+                <div class="tv-image-container clickable-image" onclick="openImageModal('t1.jpg')">
+                    <img src="t1.jpg" alt="Hanson TV" class="tv-image">
+                </div>
+                <h3 class="font-bold text-gray-800 mb-1 mt-2">هانسون 65 اینچ QLED</h3>
+                <p class="text-xs text-gray-500 mb-3">سینمای واقعی</p>
+                <div class="mt-auto">
+                    <span class="block text-gold-600 font-bold mb-2">۴۵,۰۰۰,۰۰۰ تومان</span>
+                    <div class="flex gap-2">
+                         <button onclick="toggleDetails('desc-tv3')" class="flex-1 bg-gold-500 text-white py-2 rounded-lg text-sm text-center hover:bg-gold-600 transition">جزییات کالا</button>
+                         <a href="tel:09028411552" class="flex-1 bg-gray-900 text-white py-2 rounded-lg text-sm text-center hover:bg-dark-800 transition">خرید</a>
+                    </div>
+                     <div id="desc-tv3" class="details-content bg-gray-50 mt-2 rounded-lg text-xs text-gray-600 px-2">
+                        <div class="py-2">توضیحات تکمیلی...</div>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </section>
+
+    <section class="container mx-auto px-4 py-8">
+        <h2 class="text-center text-2xl font-bold mb-8 text-gray-800">چرا خانه اسپیکر صدیقی؟</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center flex flex-col items-center hover:shadow-md transition">
+                <div class="w-16 h-16 bg-gold-100 rounded-full flex items-center justify-center text-gold-600 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-2">ضمانت اصالت</h3>
+                <p class="text-gray-500 text-sm">تمامی کالاها با گارانتی اصلی ارائه می‌شوند.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center flex flex-col items-center hover:shadow-md transition">
+                <div class="w-16 h-16 bg-gold-100 rounded-full flex items-center justify-center text-gold-600 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-2">مشاوره تخصصی</h3>
+                <p class="text-gray-500 text-sm">راهنمایی کامل برای انتخاب بهترین سیستم.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center flex flex-col items-center hover:shadow-md transition">
+                <div class="w-16 h-16 bg-gold-100 rounded-full flex items-center justify-center text-gold-600 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                    </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-2">تنوع برندها</h3>
+                <p class="text-gray-500 text-sm">مجموعه‌ای از برترین برندهای دنیا.</p>
+            </div>
+
+        </div>
+    </section>
+    <section id="installment" class="bg-gold-400 text-white py-16 mt-8 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-3xl font-bold mb-4">شرایط خرید اقساطی آسان</h2>
+            <p class="text-gold-100 mb-12">شرایط خرید اقساطی آسان برای تمامی محصولات</p>
+
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
+                
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mb-4 border border-white border-opacity-30">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-lg">انتخاب محصول</h4>
+                    <p class="text-sm text-gold-100 mt-1">انتخاب محصول دلخواه</p>
+                </div>
+
+                <div class="hidden md:block text-gold-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mb-4 border border-white border-opacity-30">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-lg">اعتبارسنجی</h4>
+                    <p class="text-sm text-gold-100 mt-1">بررسی مدارک و ضامن</p>
+                </div>
+
+                <div class="hidden md:block text-gold-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mb-4 border border-white border-opacity-30">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-lg">تحویل کالا</h4>
+                    <p class="text-sm text-gold-100 mt-1">تحویل فوری و آسان</p>
+                </div>
+
+            </div>
+
+            <div class="mt-12">
+                <a href="#contact" class="bg-gray-900 text-white px-10 py-3 rounded-full font-bold hover:bg-gray-800 transition shadow-xl">
+                    محاسبه اقساط و مشاوره
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- دکمه شناور واتساپ جدید -->
+    <a href="https://wa.me/989158192848" class="whatsapp-float" target="_blank">
+        <div class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+    </a>
+
+    <footer id="contact" class="bg-dark-800 text-gray-400 pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                
+                <div class="col-span-1 md:col-span-1">
+                    <div class="text-white text-xl font-bold mb-4 flex items-center gap-2">
+                        <div class="w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center text-white text-xs">S</div>
+                        خانه اسپیکر
+                    </div>
+                    <p class="text-sm leading-7 mb-4">
+                        **خانه اسپیکر صدیقی** با بیش از **شانزده سال سابقه و تجربه** در زمینه عرضه سیستم‌های صوتی و تصویری، بهترین و متنوع‌ترین اسپیکرها و تلویزیون‌ها را با شرایط اقساطی ویژه و خدمات پس از فروش مطمئن به شما ارائه می‌دهد.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/sedighi_speaker_home/" target="_blank" class="w-8 h-8 bg-gray-700 hover:bg-pink-600 rounded-full flex items-center justify-center text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-700 hover:bg-gold-500 rounded-full flex items-center justify-center text-white transition">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="https://wa.me/989158192848" target="_blank" class="w-8 h-8 bg-gray-700 hover:bg-whatsapp rounded-full flex items-center justify-center text-white transition">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-bold mb-4">دسترسی سریع</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about" class="hover:text-gold-500 transition">درباره ما</a></li>
+                        <li><a href="#contact" class="hover:text-gold-500 transition">تماس با ما</a></li>
+                        <li><a href="#products" class="hover:text-gold-500 transition">محصولات</a></li>
+                        <li><a href="#installment" class="hover:text-gold-500 transition">شرایط اقساط</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-bold mb-4">تماس و آدرس</h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gold-500 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span>مشهد، کوشش ۳۶، مرکز تجاری امیر، فاز ۲، پلاک ۳۷</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <a href="https://maps.app.goo.gl/" target="_blank" class="flex items-center gap-2 text-gold-400 hover:text-gold-300 transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                                </svg>
+                                <span>مسیریابی با نشان</span>
+                            </a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            <a href="tel:09028411552">۰۹۰۲۸۴۱۱۵۵۲</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                            </svg>
+                            <a href="https://wa.me/989158192848">۰۹۱۵۸۱۹۲۸۴۸ (واتساپ)</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="flex items-center gap-2">
+                    <div class="w-16 h-16 bg-white rounded-lg opacity-80 flex items-center justify-center text-xs text-black font-bold border-2 border-gold-500">اینماد</div>
+                    <div class="w-16 h-16 bg-white rounded-lg opacity-80 flex items-center justify-center text-xs text-black font-bold border-2 border-gold-500">ساماندهی</div>
+                </div>
+
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 text-center text-xs text-gray-500">
+                © ۱۴۰۴ تمامی حقوق برای خانه اسپیکر صدیقی محفوظ است.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // لودینگ صفحه
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('page-loader').classList.add('hidden');
+            }, 1500);
+        });
+
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // تابع باز و بسته کردن جزییات کالا
+        function toggleDetails(id) {
+            const content = document.getElementById(id);
+            content.classList.toggle('open');
+        }
+
+        // تابع نمایش همه محصولات (کشویی)
+        function toggleAllProducts(id) {
+            const extraSection = document.getElementById(id);
+            const arrow = document.getElementById('arrow-' + id);
+            
+            extraSection.classList.toggle('hidden');
+            
+            if (!extraSection.classList.contains('hidden')) {
+                extraSection.classList.add('grid');
+                arrow.style.transform = "rotate(180deg)";
+            } else {
+                extraSection.classList.remove('grid');
+                arrow.style.transform = "rotate(0deg)";
+            }
+        }
+
+        // تابع فیلتر کردن اسپیکرها
+        function filterSpeakers(brand) {
+            const allItems = document.querySelectorAll('.speaker-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            // آپدیت استایل دکمه‌ها
+            buttons.forEach(btn => {
+                if(btn.getAttribute('onclick').includes(brand)) {
+                    btn.classList.remove('bg-gray-200', 'text-gray-600');
+                    btn.classList.add('bg-gold-500', 'text-white');
+                } else {
+                    btn.classList.add('bg-gray-200', 'text-gray-600');
+                    btn.classList.remove('bg-gold-500', 'text-white');
+                }
+            });
+
+            // فیلتر کردن آیتم‌ها
+            allItems.forEach(item => {
+                if (brand === 'all') {
+                    item.classList.remove('hidden');
+                    item.classList.add('flex');
+                } else {
+                    if (item.getAttribute('data-brand') === brand) {
+                        item.classList.remove('hidden');
+                        item.classList.add('flex');
+                    } else {
+                        item.classList.add('hidden');
+                        item.classList.remove('flex');
+                    }
+                }
+            });
+        }
+
+        // تابع‌های مربوط به مودال بزرگنمایی تصاویر
+        function openImageModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            
+            modalImage.src = imageSrc;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // بستن مودال با کلیک روی overlay
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeImageModal();
+            }
+        });
+
+        // بستن مودال با کلید Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeImageModal();
+            }
+        });
+    </script>
+</body>
+</html>
